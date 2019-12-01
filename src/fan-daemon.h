@@ -35,7 +35,7 @@
 #include <signal.h>
 #include <glob.h>
 
-// the following three defines can be modified to change the daemon behaviour
+// the following defines can be modified to change the daemon behaviour
 #define FAN_OFF_TEMP 25
 #define FAN_MAX_TEMP 60
 #define UPDATE_INTERVAL 2
