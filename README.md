@@ -50,7 +50,7 @@ appropriate fan speed.
 
 <code>UPDATE_INTERVAL</code> tells the daemon how often to update the fan speed (in seconds).
 
-<code>JETSON_CLOCKS_WAIT</code> tells the daemon long to wait before exeuting "jetson_clocks" (in seconds).
+<code>JETSON_CLOCKS_WAIT</code> tells the daemon how long to wait before exeuting "jetson_clocks" (in seconds).
 
 You can use only integers in each of these fields. The temperature precision of the thermal
 sensors is 0.5 (°C), so don't expect the daemon to be too precise.
