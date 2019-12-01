@@ -73,24 +73,23 @@ int main(int argc, char *argv[])
         temp = readAverageTemp();
         pwmValue = adjustFanSpeed( temp,  pwmCap);
 
-	//wait X amount of intervals before starting jetson_clocks..
-	if (!clocks_done)
-	{
-	    if (clocks_wait > 0)
+        //wait X amount of intervals before starting jetson_clocks..
+        if (!clocks_done)
+        {
+            if (clocks_wait <= 0)
             {
-		clocks_wait --;
-	    }
-	    else
-	    {
-    		system(JETSON_CLOCKS);
-		clocks_done = true;
-	    }
-	}
-	else
-	{
-	    //only adjust fan if jetson_clocks have been adjusted
-            writeIntSysFs(TARGET_PWM, pwmValue);
-	}
+                system(JETSON_CLOCKS);
+                clocks_done = true;
+            }
+            else
+                clocks_wait --;
+        }
+        else
+        {
+            //only adjust fan if jetson_clocks have been adjusted
+                writeIntSysFs(TARGET_PWM, pwmValue);
+        }
+
         this_thread::sleep_for(chrono::milliseconds(UPDATE_INTERVAL * MICRO_SECONDS));
     }
 
