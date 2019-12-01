@@ -21,20 +21,11 @@ the external power supply.
 Use the standard Linux image on your Jetson Nano.
 
 ## How to install:
+To build, just run:
 
-The code is contained in a Code::Blocks project. You do not need to install
-Code::Blocks to build the project. To build without Code::BLocks cd into the
-project directory and execute
+    make
 
-    make all
-
-This will build the project and place the executable in the project's
-./bin/Release directory.
-
-If you have Code:Blocks you can load the project into Code::Blocks,select the
-Release build and build the project.
-
-Once you have built the project from the project directory exceute the install script.
+Once you have built the project, run the install script:
 
     ./install.sh
 
