@@ -1,16 +1,15 @@
 #!/bin/bash
 
-#Require sudo
+#Requires root
 if [ $EUID != 0 ]; then
-    sudo "$0" "$@"
-    exit $?
+    echo "ERROR: This script must be run as root!"
+    exit -1
 fi
 
 echo "removing service..."
 systemctl stop fan-daemon
 systemctl disable fan-daemon
 echo "done"
-
 
 echo "removing /usr/local/bin/fan-daemon/..."
 rm -r /usr/local/bin/fan-daemon

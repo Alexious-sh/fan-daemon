@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#Require sudo
+#Requires root
 if [ $EUID != 0 ]; then
-    sudo "$0" "$@"
-    exit $?
+    echo "ERROR: This script must be run as root!"
+    exit -1
 fi
 
 echo "setting to /usr/local/bin/fan-daemon/..."
