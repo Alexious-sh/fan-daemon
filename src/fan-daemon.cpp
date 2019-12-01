@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
         else
         {
             //only adjust fan if jetson_clocks have been adjusted
-                writeIntSysFs(TARGET_PWM, pwmValue);
+            writeIntSysFs(TARGET_PWM, pwmValue);
         }
 
         this_thread::sleep_for(chrono::milliseconds(UPDATE_INTERVAL * MICRO_SECONDS));
