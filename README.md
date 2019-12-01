@@ -33,8 +33,7 @@ The script will install the fan-daemon as a system service which excecutes at ru
 It's a set-it-and-forget-it type thing, unless you want to modify the fan speeds.
 
 ## How to customize:
-In the project directory open fan_control.h in Code::Blocks or with your favorite
-editor and modify the following defines:
+Open src/fan_control.h and modify the following defines:
 
 <code>#define FAN_OFF_TEMP 20</code>
 
@@ -43,12 +42,15 @@ editor and modify the following defines:
 <code>#define UPDATE_INTERVAL 2</code>
 
 <code>FAN_OFF_TEMP</code> is the temperature (°C) below which the fan is turned off.
+
 <code>FAN_MAX_TEMP</code> is the temperature (°C) above which the fan is at 100% speed.
 
 The daemon will interpolate linearly between these two points to determine the
 appropriate fan speed.
 
 <code>UPDATE_INTERVAL</code> tells the daemon how often to update the fan speed (in seconds).
+
+<code>JETSON_CLOCKS_WAIT</code> tells the daemon long to wait before exeuting "jetson_clocks" (in seconds).
 
 You can use only integers in each of these fields. The temperature precision of the thermal
 sensors is 0.5 (°C), so don't expect the daemon to be too precise.
