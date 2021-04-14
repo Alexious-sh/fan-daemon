@@ -131,9 +131,9 @@ unsigned getPwmCap()
 */
 unsigned adjustFanSpeed(unsigned temp, unsigned pwmCap)
 {
-    unsigned speed = (pwmCap / (FAN_MAX_TEMP - FAN_OFF_TEMP)) *  (temp - FAN_OFF_TEMP);
+    int speed = (pwmCap / (FAN_MAX_TEMP - FAN_OFF_TEMP)) *  (temp - FAN_OFF_TEMP);
 
-    return min((unsigned)max((unsigned)0, speed), pwmCap);
+    return min((unsigned)max(0, speed), pwmCap);
 }
 
 /**
